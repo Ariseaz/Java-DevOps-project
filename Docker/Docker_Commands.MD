@@ -65,3 +65,7 @@ docker rm <container_id>
 ```sh
 docker exec -it <container_Name> /bin/bash
 ```
+13. To run tomcat 9.x on docker
+```
+docker run -it --name tomcat -p 8080:8080 --rm tomcat:9.0
+```
