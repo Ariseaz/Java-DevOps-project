@@ -1,3 +1,13 @@
+# Tomcat installation on EC2 instance with base Ubuntu 18.04 linux
+
+_Follow the link below
+```
+https://www.arubacloud.com/tutorial/how-to-install-apache-tomcat-on-ubuntu-18-04.aspx
+```
+tomcat home directory to Add below users to conf/tomcat-user.xml file is located at 
+***/usr/local/tomcat/conf***
+
+
 # Tomcat installation on EC2 instance
 
 ### Pre-requisites
