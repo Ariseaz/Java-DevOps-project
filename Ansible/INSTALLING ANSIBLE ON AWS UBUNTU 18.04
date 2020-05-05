@@ -1,0 +1,63 @@
+# INSTALLING ANSIBLE ON AWS UBUNTU 18.04
+
+## Setup EC2 on AWS
+
+Log in to the EC2 instance with ssh
+
+Swith to root user
+```
+sudo su -
+```
+
+Change hostname to Ansible Master
+```
+hostname Ansible_Master
+```
+
+Install required packages 
+```
+apt-get update
+apt-get install apt-transport-https wget gnupg -y
+```
+
+Install Ansible
+```
+apt-get update
+apt-get install ansible
+```
+
+Create a local user account named ansible
+```
+useradd -m -s /bin/bash ansible
+```
+Give ansible sudo right
+```
+usermod -aG sudo ansible
+```
+_Use the SU comand to become the Ansible user_
+
+Generate a SSH key to the Ansible user account
+```
+su ansible
+ssh-keygen
+```
+Go out from ansible user session
+```
+exit
+```
+Add the list of desired Ansible nodes
+```
+nano /etc/ansible/hosts
+```
+Sample nodes
+```
+[nodes]
+server1 ansible_host=203.0.113.111
+server2 ansible_host=203.0.113.112
+server3 ansible_host=203.0.113.113
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+```
+
+### SWITCH TO THE NODES (EC2)
