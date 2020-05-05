@@ -61,3 +61,43 @@ ansible_python_interpreter=/usr/bin/python3
 ```
 
 ### SWITCH TO THE NODES (EC2)
+
+On the command-lise of your Ansible node, create a user account named Ansible
+```
+adduser ansible
+```
+On the Ansible node, edit the SUDOERS configuration file
+```
+vi /etc/sudoers
+```
+Add the following line at the end of the SUDOERS file
+```
+ansible ALL=(ALL) NOPASSWD:ALL
+```
+
+Go back to the Ansible Master server command-line.
+
+Use the ssh-copy-id command to copy the Ansible user account SSH key from the server to the node
+```
+su ansible
+ssh-copy-id 200.100.100.100
+```
+Now, from the Ansible Master server, try to login on the Ansible node.
+
+You will need to enter the SSH key password
+```
+su ansible
+ssh 200.100.100.100
+```
+From the Ansible Master server console, test the communication with the Ansible nodes.
+```
+su ansible
+ansible -m ping all
+```
+## DO SOME CHECK
+
+_On the Ansible Master server console, use the following command to get the Uptime of all Ansible nodes_
+```
+su ansible
+ansible -m raw -a 'uptime' all
+```
