@@ -101,3 +101,8 @@ _On the Ansible Master server console, use the following command to get the Upti
 su ansible
 ansible -m raw -a 'uptime' all
 ```
+### MORE ALSO ENABLE PASSWORD AUTHENTICATION OVER SSH FOR DEPLOY OVER SSH PLUGIN TO CONNECT FROM JENKINS
+```
+nano /etc/ssh/sshd_config
+PasswordAuthentication Yes
+```
