@@ -76,6 +76,7 @@
 1. To delete cluster
     ```sh
      kops delete cluster demo.k8s.valaxy.net --yes
+     kops delete cluster demo.k8s.azkube.net --state s3://demo.k8s.azkube.net --yes
     ```
    
 #### Deploying Nginx pods on Kubernetes
