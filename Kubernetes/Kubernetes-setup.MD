@@ -60,7 +60,7 @@
     ```
     kops create cluster \
    --name demo.k8s.azkube.net \
-   --state s3://hash-kops-kube-bucket \
+   --state s3://demo.k8s.azkube.net \
    --cloud aws \
    --master-size t2.medium \
    --master-count 1 \
