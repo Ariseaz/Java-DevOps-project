@@ -91,14 +91,22 @@
      kops delete cluster demo.k8s.valaxy.net --yes
      kops delete cluster demo.k8s.azkube.net --state s3://demo.k8s.azkube.net --yes
     ```
+1. To Login to kubernetes master in the cluster
+    ```sh
+     ssh admin@api.demo.k8s.azkube.net
+     kubectl get nodes
+     kubectl get pods
+     kubectl get deployments
+     kubectl get all
+     kubectl get pods -o wide
+    ```
    
 #### Deploying Nginx pods on Kubernetes
 1. Deploying Nginx Container
     ```sh
     kubectl run sample-nginx --image=nginx --replicas=2 --port=80
     # kubectl run simple-devops-project --image=yankils/simple-devops-image --replicas=2 --port=8080
-    kubectl get pods
-    kubectl get deployments
+    
    ```
 
 1. Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them.
