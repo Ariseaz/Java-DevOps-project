@@ -57,6 +57,19 @@
    ```sh
    kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.valaxy.net --dns-zone=valaxy.net --dns private 
     ```
+    ```
+    kops create cluster \
+   --name demo.k8s.azkube.net \
+   --state s3://hash-kops-kube-bucket \
+   --cloud aws \
+   --master-size t2.medium \
+   --master-count 1 \
+   --master-zones eu-west-1a \
+   --node-size t2.medium \
+   --node-count 1 \
+   --zones eu-west-1a,eu-west-1b,eu-west-1c \
+   --ssh-public-key ~/.ssh/id_rsa.pub \
+    ```
 
 1. Create kubernetes cluser
     ```sh
