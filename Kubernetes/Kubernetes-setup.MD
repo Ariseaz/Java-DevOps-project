@@ -60,18 +60,18 @@
    kops create cluster --cloud=aws --zones=ap-south-1b --name=demo.k8s.valaxy.net --dns-zone=valaxy.net --dns private 
     ```
     ```
-    kops create cluster \
-   --name demo.k8s.azkube.net \
-   --state s3://demo.k8s.azkube.net \
-   --cloud aws \
-   --master-size t2.medium \
-   --master-count 1 \
-   --master-zones eu-west-1a \
-   --node-size t2.medium \
-   --node-count 1 \
-   --zones eu-west-1a,eu-west-1b,eu-west-1c \
-   --dns-zone=azkube.space --dns public \
-   --ssh-public-key ~/.ssh/id_rsa.pub \
+   kops create cluster \
+      --name demo.k8s.azkube.space \
+      --state s3://demo.k8s.azkube.space \
+      --cloud aws \
+      --master-size t2.micro \
+      --master-count 1 \
+      --master-zones us-west-2a \
+      --node-size t2.micro \
+      --node-count 2 \
+      --zones us-west-2a,us-west-2b,us-west-2c \
+      --dns-zone=azkube.space --dns public \
+      --ssh-public-key ~/.ssh/id_rsa.pub
     ```
 
 1. Create kubernetes cluser
@@ -111,14 +111,16 @@
 #### Deploying Nginx pods on Kubernetes
 1. Deploying Nginx Container
     ```sh
-    kubectl run sample-nginx --image=nginx --replicas=2 --port=80
+    kubectl create deployment --image=nginx sample-nginx
+    _kubectl run sample-nginx --image=nginx --replicas=2 --port=80_
     # kubectl run simple-devops-project --image=yankils/simple-devops-image --replicas=2 --port=8080
     
    ```
 
-1. Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them.
+2. Expose the deployment as service. This will create an ELB in front of those 2 containers and allow us to publicly access them.
    ```sh
    kubectl expose deployment sample-nginx --port=80 --type=LoadBalancer
    # kubectl expose deployment simple-devops-project --port=8080 --type=LoadBalancer
    kubectl get services -o wide
    ```
+3. To scale
