@@ -70,6 +70,7 @@
    --node-size t2.medium \
    --node-count 1 \
    --zones eu-west-1a,eu-west-1b,eu-west-1c \
+   --dns-zone=azkube.space --dns public \
    --ssh-public-key ~/.ssh/id_rsa.pub \
     ```
 
