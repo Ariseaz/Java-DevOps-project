@@ -82,6 +82,7 @@
 1. Validate your cluster
      ```sh
       kops validate cluster
+      kops validate cluster --wait 10m
     ```
 
 1. To list nodes
@@ -98,6 +99,7 @@
     ```
 1. To Login to kubernetes master in the cluster
     ```sh
+     ssh -i ~/.ssh/id_rsa ubuntu@api.demo.k8s.azkube.space
      ssh admin@api.demo.k8s.azkube.net
      kubectl get nodes
      kubectl get pods
