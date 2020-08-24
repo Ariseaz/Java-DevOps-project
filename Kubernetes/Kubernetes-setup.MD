@@ -93,6 +93,8 @@
     ```sh
      kops delete cluster demo.k8s.valaxy.net --yes
      kops delete cluster demo.k8s.azkube.net --state s3://demo.k8s.azkube.net --yes
+      kops delete cluster --name demo.k8s.azkube.space --state s3://demo.k8s.azkube.space --yes
+
     ```
 1. To Login to kubernetes master in the cluster
     ```sh
